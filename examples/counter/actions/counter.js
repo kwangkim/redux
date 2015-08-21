@@ -1,5 +1,6 @@
 export const INCREMENT_COUNTER = 'INCREMENT_COUNTER';
 export const DECREMENT_COUNTER = 'DECREMENT_COUNTER';
+export const MULTIPLICATIONBY2_COUNTER = 'MULTIPLICATIONBY2_COUNTER';
 
 export function increment() {
   return {
@@ -13,6 +14,11 @@ export function decrement() {
   };
 }
 
+export function multiplicationby2() {
+  return {
+    type: MULTIPLICATIONBY2_COUNTER
+  };
+}
 export function incrementIfOdd() {
   return (dispatch, getState) => {
     const { counter } = getState();
@@ -25,10 +31,18 @@ export function incrementIfOdd() {
   };
 }
 
-export function incrementAsync(delay = 1000) {
+export function incrementAsync(delay = 3000) {
   return dispatch => {
     setTimeout(() => {
       dispatch(increment());
+    }, delay);
+  };
+}
+
+export function multiplicationby2Async(delay = 3000) {
+  return dispatch => {
+    setTimeout(() => {
+      dispatch(multiplicationby2());
     }, delay);
   };
 }
